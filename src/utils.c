@@ -52,7 +52,7 @@ log_to_postgres(PyObject *self, PyObject *args, PyObject *kwargs)
 	}
 	else if (PyUnicode_Check(p_message))
 	{
-		message = strdup(PyUnicode_AsPgString(p_message));
+		message = PyUnicode_AsPgString(p_message);
 	}
 	else
 	{
@@ -60,7 +60,7 @@ log_to_postgres(PyObject *self, PyObject *args, PyObject *kwargs)
 		PyObject   *temp = PyObject_Str(p_message);
 
 		errorCheck();
-		message = strdup(PyString_AsString(temp));
+		message = PyString_AsString(temp);
 		errorCheck();
 		Py_DECREF(temp);
 	}

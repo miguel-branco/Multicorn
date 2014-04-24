@@ -134,7 +134,7 @@ PyUnicode_AsPgString(PyObject *p_unicode)
 								unicode_size,
 								GetDatabaseEncodingName(), NULL);
 	errorCheck();
-	message = strdup(PyBytes_AsString(pTempStr));
+	message = pstrdup(PyBytes_AsString(pTempStr));
 	errorCheck();
 	Py_DECREF(pTempStr);
 	return message;

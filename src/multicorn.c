@@ -502,7 +502,7 @@ multicornAddForeignUpdateTargets(Query *parsetree,
 	}
 	tle = makeTargetEntry((Expr *) var,
 						  list_length(parsetree->targetList) + 1,
-						  strdup(attrname),
+						  pstrdup(attrname),
 						  true);
 	parsetree->targetList = lappend(parsetree->targetList, tle);
 	Py_DECREF(instance);
